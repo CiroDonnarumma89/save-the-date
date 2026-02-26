@@ -5,12 +5,12 @@
 }
 
 :root {
-    --primary-color: #c41e3a;
-    --secondary-color: #ffd700;
-    --accent-color: #f5e6d3;
+    --primary-color: #6b8e6f;
+    --secondary-color: #9db580;
+    --accent-color: #f5f3f0;
     --text-color: #2c2c2c;
     --light-text: #666;
-    --border-color: #e0d5c7;
+    --border-color: #e8e5e0;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
@@ -38,7 +38,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--primary-color) 0%, #ff6b7a 100%);
+    background: var(--primary-color);
     color: white;
     text-align: center;
     position: relative;
@@ -202,6 +202,24 @@ body {
     font-style: italic;
 }
 
+.map-link {
+    display: inline-block;
+    margin-top: 15px;
+    background: var(--primary-color);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.map-link:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
 /* RSVP Section */
 .rsvp {
     padding: 80px 0;
@@ -251,7 +269,7 @@ body {
 .btn-submit {
     width: 100%;
     padding: 15px;
-    background: linear-gradient(135deg, var(--primary-color) 0%, #ff6b7a 100%);
+    background: var(--primary-color);
     color: white;
     border: none;
     border-radius: 4px;
@@ -337,7 +355,7 @@ body {
 
 /* Footer */
 .footer {
-    background: linear-gradient(135deg, var(--primary-color) 0%, #ff6b7a 100%);
+    background: var(--primary-color);
     color: white;
     padding: 40px 0;
     text-align: center;
