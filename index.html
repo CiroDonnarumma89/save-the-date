@@ -183,6 +183,33 @@
             margin-bottom: 15px;
         }
 
+        .calendar-icon {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            border-radius: 10px;
+            background: var(--accent-color);
+            border: 2px solid var(--secondary-color);
+            color: var(--text-color);
+            box-shadow: var(--shadow);
+        }
+
+        .calendar-icon .cal-month {
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .calendar-icon .cal-day {
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
         .event-card h3 {
             font-size: 1.5rem;
             color: var(--primary-color);
@@ -246,10 +273,18 @@
 
         .gallery-item {
             position: relative;
+            overflow: visible;
+            text-align: center;
+        }
+
+        .gallery-item-frame {
+            position: relative;
             overflow: hidden;
             border-radius: 4px;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-lg);
+            border: 4px solid var(--secondary-color);
             aspect-ratio: 1;
+            background: white;
         }
 
         .gallery-item img {
@@ -257,10 +292,19 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.3s ease;
+            display: block;
         }
 
         .gallery-item:hover img {
             transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: var(--text-color);
+            font-weight: 500;
+            text-transform: capitalize;
         }
 
         /* Travel Section */
@@ -292,6 +336,10 @@
         .travel-card p {
             color: var(--light-text);
             line-height: 1.8;
+        }
+
+        .travel-card p + p {
+            margin-top: 8px;
         }
 
         /* Footer */
@@ -394,11 +442,14 @@
             
             <div class="event-cards">
                 <div class="event-card">
-                    <div class="card-icon">📅</div>
+                    <div class="card-icon calendar-icon">
+                        <span class="cal-month">Jun</span>
+                        <span class="cal-day">10</span>
+                    </div>
                     <h3>Cerimonia</h3>
                     <p class="date">10 Giugno 2026</p>
                     <p class="time">10:30</p>
-                    <p class="location">Chiesa Madre di Sant'Antonio Abate<br>Via Roma 308, Sant'Antonio Abate (NA)</p>
+                    <p class="location">Chiesa di Sant'Antonio Abate<br>Via Roma 308, Sant'Antonio Abate (NA)</p>
                     <a href="https://maps.google.com/?q=Chiesa+Madre+Sant'Antonio+Abate+Via+Roma+308+Sant'Antonio+Abate" target="_blank" class="map-link">📍 Apri Mappa</a>
                 </div>
 
@@ -427,39 +478,40 @@
             <h2>La Nostra Storia</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300x300?text=Inizio" alt="Il nostro inizio">
+                    <img src="inizio.jpeg" alt="Il nostro inizio">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300x300?text=Momento" alt="Un bellissimo momento">
+                    <img src="momento.jpeg" alt="Un bellissimo momento">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300x300?text=Proposta" alt="La proposta">
+                    <img src="proposta.jpeg" alt="La proposta">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300x300?text=Viaggio" alt="Avventure insieme">
+                    <img src="avventura.jpeg" alt="Avventure insieme">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300x300?text=Famiglia" alt="Con la famiglia">
+                    <img src="mare.jpeg" alt="Passione mare">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300x300?text=Amore" alt="Puro amore">
+                    <img src="amore.jpeg" alt="Puro amore">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Travel & Accommodation -->
-    <section id="viaggi" class="travel">
+    <!-- <section id="viaggi" class="travel">
         <div class="container">
             <h2>Viaggio e Alloggio</h2>
             <div class="travel-cards">
                 <div class="travel-card">
                     <h3>🚗 In Auto</h3>
-                    <p>Parking disponibile presso la Villa. Distanza dal centro città: 15 km.</p>
+                    <p> La Tenuta è raggiungibile dalla chiesa in circa 40 minuti tramite A3. </p>
+                    <p>Parking disponibile presso Tenuta Leone.</p>
                 </div>
                 <div class="travel-card">
                     <h3>🚆 In Treno</h3>
-                    <p>Stazione Centrale Milano. Navetta disponibile dalle 15:30 (contattare per prenotare).</p>
+                    <p>Stazione Centrale Napoli.</p>
                 </div>
                 <div class="travel-card">
                     <h3>🏨 Alloggio</h3>
@@ -467,14 +519,14 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <p>Con amore ❤️</p>
             <p>Ciro & Federica</p>
-            <p class="contact">Contatti: ciro.donnarumma89@gmail.com | +39 123 456 7890 | federicadaniello@hotmail.com | 3922001090</p>
+            <p class="contact">Contatti: ciro.donnarumma89@gmail.com | +39 334 35 10 832 | federicadaniello@hotmail.com | +39 392 20 01 090</p>
         </div>
     </footer>
     <script>
@@ -512,6 +564,21 @@
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
+        });
+
+        // Wrap gallery images with frame and add alt text captions
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            // Create frame wrapper
+            const frame = document.createElement('div');
+            frame.className = 'gallery-item-frame';
+            img.parentNode.insertBefore(frame, img);
+            frame.appendChild(img);
+
+            // Create and add caption
+            const caption = document.createElement('div');
+            caption.className = 'gallery-caption';
+            caption.textContent = img.alt;
+            img.parentNode.parentNode.appendChild(caption);
         });
 
         // Console message
