@@ -1,13 +1,13 @@
-# 💒 Sito Web di Invito Matrimoniale
+# 💒 Save the Date (Single File)
 
-Un elegante e moderno sito web per inviti matrimoniali, completamente personalizzabile.
+Un elegante Save the Date in un unico file HTML, pronto da condividere via smartphone e pubblicare online.
 
 ## ✨ Caratteristiche
 
-- **Design Elegante**: Layout raffinato con colori coordinati (rosso, oro, beige)
+- **Single File**: HTML autosufficiente con CSS e JS inline
+- **Design Elegante**: Layout raffinato con colori coordinati
 - **Sezione Hero**: Introduzione affascinante con animazioni
-- **Dettagli Evento**: Informazioni su cerimonia, ricevimento e musica
-- **Modulo RSVP**: Modulo interattivo per confermare la presenza
+- **Dettagli Evento**: Informazioni su cerimonia e ricevimento
 - **Galleria Foto**: Sezione per condividere momenti speciali
 - **Informazioni Viaggio**: Dettagli su trasporti e alloggio
 - **Responsive Design**: Perfetto su desktop, tablet e mobile
@@ -17,9 +17,7 @@ Un elegante e moderno sito web per inviti matrimoniali, completamente personaliz
 
 ```
 .
-├── index.html      # Pagina principale
-├── styles.css      # Stili e design
-├── script.js       # Interattività e funzionalità
+├── index.html      # Pagina completa (CSS/JS inline)
 └── README.md       # Questo file
 ```
 
@@ -35,12 +33,12 @@ Un elegante e moderno sito web per inviti matrimoniali, completamente personaliz
 ## 🎨 Personalizzazione
 
 ### Colori
-Modifica le variabili CSS in `styles.css`:
+Modifica le variabili CSS in `index.html` dentro il tag `<style>`:
 ```css
 :root {
-    --primary-color: #c41e3a;      /* Rosso (principale) */
-    --secondary-color: #ffd700;    /* Oro (accenti) */
-    --accent-color: #f5e6d3;       /* Beige (sfondo) */
+    --primary-color: #6b8e6f;
+    --secondary-color: #9db580;
+    --accent-color: #f5f3f0;
 }
 ```
 
@@ -60,13 +58,6 @@ con i tuoi URL di immagini.
 
 ## 📱 Funzionalità
 
-### Modulo RSVP
-- Raccoglie nome, email, numero ospiti
-- Gestisce esigenze dietetiche
-- Consente messaggi personali
-- Salva i dati in localStorage (per demo)
-- Mostra messaggio di conferma
-
 ### Scroll Fluido
 - Scorrimento automatico fluido tra sezioni
 - Animazioni di elementi al raggiungimento
@@ -76,38 +67,13 @@ con i tuoi URL di immagini.
 - Tablet (768px - 1199px)
 - Mobile (<768px)
 
-## 💾 RSVP Data Storage
-
-I dati RSVP vengono salvati in localStorage. Per una soluzione produttiva:
-
-1. **Collegare a un backend** (Node.js, Python, etc.)
-2. **Usare un servizio** (Firebase, Airtable, etc.)
-3. **Configurare email** di conferma automatica
-
-Esempio di integrazione con API:
-```javascript
-fetch('/api/rsvp', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(formData)
-})
-```
-
-## 📧 Configurare Email di Conferma
-
-Per aggiungere email automatiche, usa un servizio come:
-- **EmailJS**: Servizio email JavaScript
-- **Formspree**: Form a email
-- **Custom Backend**: Solution personalizzata
-
 ## 🎯 Sezioni Disponibili
 
 1. **Hero**: Benvenuto elegante
 2. **Dettagli**: Cerimonia, ricevimento, musica
-3. **RSVP**: Modulo conferma
-4. **Galleria**: Foto della coppia
-5. **Viaggio**: Trasporti e alloggio
-6. **Footer**: Contatti finali
+3. **Galleria**: Foto della coppia
+4. **Viaggio**: Trasporti e alloggio
+5. **Footer**: Contatti finali
 
 ## 📝 Personalizzazioni Consigliate
 
@@ -115,29 +81,30 @@ Per aggiungere email automatiche, usa un servizio come:
 - [ ] Aggiornare date evento
 - [ ] Inserire indirizzi reali
 - [ ] Aggiungere foto personali
-- [ ] Configurare email RSVP
+- [ ] Verificare link mappe
 - [ ] Testare su mobile
 - [ ] Personalizzare colori tema
 
-## 🌐 Deploy Online
+## 🌐 Pubblicare su GitHub Pages
 
-Carica il sito su:
-- **GitHub Pages**: Gratis, statico
-- **Netlify**: Semplice, gratis
-- **Vercel**: Veloce, gratis
-- **Hosting tradizionale**: Bluehost, SiteGround
+1. Crea un repository su GitHub (es. `save-the-date`).
+2. Carica `index.html` e `README.md`.
+3. Vai su **Settings** → **Pages**.
+4. In **Build and deployment**, scegli:
+    - **Source**: Deploy from a branch
+    - **Branch**: `main` / `root`
+5. Salva e attendi il link (es. `https://tuo-utente.github.io/save-the-date/`).
 
-## 📱 Condividere
+## 📱 Condivisione via smartphone (offline)
 
-Copia il link e condividi tramite:
-- Email
-- WhatsApp
-- Social Media
-- QR Code
+1. Invia `index.html` via WhatsApp/Telegram/Email.
+2. Su iPhone: apri l'allegato → condividi → **Apri in Safari**.
+3. Su Android: apri l'allegato → scegli il browser.
+4. (Opzionale) Aggiungi alla schermata Home dal browser.
 
 ## 🎉 Goditi il Tuo Matrimonio!
 
-Questo template è pronto per l'uso immediato. Personalizza secondo i tuoi desideri e condividi con i tuoi ospiti.
+Questo template e' pronto per l'uso immediato. Personalizza secondo i tuoi desideri e condividi con i tuoi ospiti.
 
 Per supporto e aggiornamenti, consulta la documentazione HTML5 e CSS3 standard.
 

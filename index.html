@@ -3,8 +3,378 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Il Nostro Matrimonio | Elena & Marco</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Save the Date | Ciro & Federica</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #6b8e6f;
+            --secondary-color: #9db580;
+            --accent-color: #f5f3f0;
+            --text-color: #2c2c2c;
+            --light-text: #666;
+            --border-color: #e8e5e0;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            background-color: #fff;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -100px;
+            left: -100px;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            bottom: -50px;
+            right: -50px;
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(30px);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .names {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .save-date {
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.95;
+        }
+
+        .decoration {
+            font-size: 2rem;
+            letter-spacing: 15px;
+            margin-top: 20px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        /* Details Section */
+        .details {
+            padding: 80px 0;
+            background-color: #f9f7f4;
+        }
+
+        .details h2,
+        .gallery h2,
+        .travel h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .details h2::after,
+        .gallery h2::after,
+        .travel h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        .event-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .event-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .event-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .event-card .date {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .event-card .time {
+            font-size: 1rem;
+            color: var(--light-text);
+            margin-bottom: 15px;
+        }
+
+        .event-card .location {
+            font-size: 0.95rem;
+            color: var(--light-text);
+            line-height: 1.8;
+        }
+
+        .event-card .description {
+            font-size: 0.95rem;
+            color: var(--light-text);
+            font-style: italic;
+        }
+
+        .map-link {
+            display: inline-block;
+            margin-top: 15px;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .map-link:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 80px 0;
+            background-color: #f9f7f4;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            box-shadow: var(--shadow);
+            aspect-ratio: 1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Travel Section */
+        .travel {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .travel-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .travel-card {
+            background: linear-gradient(135deg, var(--accent-color) 0%, #fff 100%);
+            padding: 35px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+            box-shadow: var(--shadow);
+        }
+
+        .travel-card h3 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .travel-card p {
+            color: var(--light-text);
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .footer p:first-child {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .contact {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 15px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .names {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .details h2,
+            .gallery h2,
+            .travel h2 {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+
+            .event-cards,
+            .travel-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                height: 70vh;
+            }
+
+            .details,
+            .gallery,
+            .travel {
+                padding: 50px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .names {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .decoration {
+                letter-spacing: 10px;
+            }
+
+            .details h2,
+            .gallery h2,
+            .travel h2 {
+                font-size: 1.5rem;
+            }
+
+            .event-card {
+                padding: 25px 15px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Hero Section -->
@@ -12,6 +382,7 @@
         <div class="hero-content">
             <h1 class="names">Ciro & Federica</h1>
             <p class="subtitle">Vi invitiamo a celebrare il nostro amore</p>
+            <p class="save-date">Save the Date · 10 Giugno 2026</p>
             <div class="decoration">✿ ✿ ✿</div>
         </div>
     </section>
@@ -47,53 +418,6 @@
                     <p class="description">Musica dal vivo e DJ</p>
                 </div> -->
             </div>
-        </div>
-    </section>
-
-    <!-- RSVP Section -->
-    <section id="rsvp" class="rsvp">
-        <div class="container">
-            <h2>Conferma la Tua Presenza</h2>
-            <form id="rsvpForm" class="rsvp-form">
-                <div class="form-group">
-                    <label for="name">Nome Completo *</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Telefono</label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
-
-                <div class="form-group">
-                    <label for="guests">Numero di Ospiti *</label>
-                    <select id="guests" name="guests" required>
-                        <option value="">Seleziona...</option>
-                        <option value="1">1 Ospite</option>
-                        <option value="2">2 Ospiti</option>
-                        <option value="3">3 Ospiti</option>
-                        <option value="4">4 Ospiti</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="dietary">Esigenze Dietetiche</label>
-                    <textarea id="dietary" name="dietary" rows="3" placeholder="Es. Vegetariano, Allergico a..."></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Messaggio Speciale</label>
-                    <textarea id="message" name="message" rows="4" placeholder="Condividi un messaggio con gli sposi..."></textarea>
-                </div>
-
-                <button type="submit" class="btn-submit">Conferma Presenza</button>
-            </form>
-            <p class="rsvp-deadline">⏰ Confermare entro il 30 Aprile 2026</p>
         </div>
     </section>
 
@@ -153,7 +477,45 @@
             <p class="contact">Contatti: ciro.donnarumma89@gmail.com | +39 123 456 7890 | federicadaniello@hotmail.com | 3922001090</p>
         </div>
     </footer>
+    <script>
+        // Smooth scroll navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
 
-    <script src="script.js"></script>
+        // Add scroll animation for elements
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.event-card, .travel-card, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Console message
+        console.log('%cBenvenuti al nostro matrimonio! 💕', 'font-size: 20px; color: #c41e3a; font-weight: bold;');
+    </script>
 </body>
 </html>
